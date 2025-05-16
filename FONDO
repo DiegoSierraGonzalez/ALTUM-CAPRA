@@ -1,6 +1,6 @@
 body {
   /* Cambia la ruta por la de tu foto */
-  background: url('files/mi_fondo_montaña.jpg') no-repeat center center fixed;
+  background: url('files/mi_foto_montaña.jpg') no-repeat center center fixed;
   background-size: cover;
   color: var(--text-color);
   line-height: 1.6;
