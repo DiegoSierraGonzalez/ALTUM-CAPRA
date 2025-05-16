@@ -4,6 +4,8 @@ body {
   background-size: cover;
   color: var(--text-color);
   line-height: 1.6;
+  /* Animación para transición suave en el fondo */
+  transition: background 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 nav {
@@ -17,6 +19,15 @@ nav {
   ), url('files/tu_imagen.jpg') no-repeat center center;
   background-size: cover;
   flex-wrap: wrap;
-  /* Opcional: agrega un borde sutil si quieres separar el nav del fondo */
   border-bottom: 2px solid #38ada9;
+  /* Animación de aparición */
+  opacity: 0;
+  animation: fadeInNav 1.3s ease forwards;
+  animation-delay: 0.5s;
+}
+
+/* Keyframes para fade-in del nav */
+@keyframes fadeInNav {
+  from { opacity: 0; transform: translateY(-30px);}
+  to   { opacity: 1; transform: translateY(0);}
 }
