@@ -24,6 +24,7 @@
       margin: 0 20px;
       font-size: 1.2em;
       transition: color 0.3s;
+      cursor: pointer;
     }
     nav a:hover {
       color: #ffd700;
@@ -32,23 +33,92 @@
       padding: 40px 20px;
       min-height: 80vh;
       background: rgba(0,0,0,0.3);
+      max-width: 700px;
+      margin: auto;
+      border-radius: 10px;
+    }
+    .foto-guia {
+      display: block;
+      margin: 20px auto 0 auto;
+      max-width: 200px;
+      border-radius: 50%;
+      border: 3px solid #ffd700;
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="#" onclick="cambiarFondo('mi_foto_montaña.jpg')">Inicio</a>
-    <a href="#" onclick="cambiarFondo('fondo2.jpg')">Expediciones</a>
-    <a href="#" onclick="cambiarFondo('fondo3.jpg')">Contacto</a>
+    <a onclick="mostrarContenido('inicio', 'mi_foto_montaña.jpg')">Inicio</a>
+    <a onclick="mostrarContenido('expediciones', 'fondo2.jpg')">Expediciones</a>
+    <a onclick="mostrarContenido('contacto', 'fondo3.jpg')">Contacto</a>
+    <a onclick="mostrarContenido('galeria', 'galeria.jpg')">Galería</a>
+    <a onclick="mostrarContenido('sobre_nosotros', 'sobre_nosotros.jpg')">Sobre Nosotros</a>
+    <a onclick="mostrarContenido('guias', 'fondo_guias.jpg')">Guías</a>
+    <a onclick="mostrarContenido('pico_aguila', 'fondo_pico_aguila.jpg')">Pico del Águila</a>
   </nav>
-  <div class="contenido">
+  <div class="contenido" id="contenido">
     <h1>Bienvenido a ALTUM CAPRA</h1>
     <p>Página 100% dedicada a una experiencia mágica en la montaña. Explora nuestras expediciones y contacta con nosotros.</p>
   </div>
   <script>
-    function cambiarFondo(imagen) {
+    function mostrarContenido(seccion, imagen) {
       document.body.style.background = `url('${imagen}') no-repeat center center fixed`;
       document.body.style.backgroundSize = "cover";
+
+      let contenido = document.getElementById('contenido');
+      if(seccion === 'inicio'){
+        contenido.innerHTML = `
+          <h1>Bienvenido a ALTUM CAPRA</h1>
+          <p>Página 100% dedicada a una experiencia mágica en la montaña. Explora nuestras expediciones y contacta con nosotros.</p>
+        `;
+      } else if(seccion === 'expediciones'){
+        contenido.innerHTML = `
+          <h1>Expediciones</h1>
+          <p>Descubre todas nuestras rutas y aventuras de montaña. ¡Elige tu próxima expedición!</p>
+        `;
+      } else if(seccion === 'contacto'){
+        contenido.innerHTML = `
+          <h1>Contacto</h1>
+          <p>¿Tienes dudas o quieres reservar? Escríbenos para más información.</p>
+        `;
+      } else if(seccion === 'galeria'){
+        contenido.innerHTML = `
+          <h1>Galería</h1>
+          <p>Explora fotos de nuestras aventuras pasadas y anímate a sumarte a la siguiente.</p>
+        `;
+      } else if(seccion === 'sobre_nosotros'){
+        contenido.innerHTML = `
+          <h1>Sobre Nosotros</h1>
+          <p>Somos un equipo apasionado por la montaña y las experiencias auténticas en la naturaleza.</p>
+        `;
+      } else if(seccion === 'guias'){
+        contenido.innerHTML = `
+          <h1>Diego – Guía de montaña</h1>
+          <p>
+            Soy una persona alegre, apasionada por la naturaleza y siempre lista para compartir buena vibra en cada aventura. 
+            Como guía, mi prioridad es que cada experiencia sea segura, auténtica y enriquecedora. 
+            Creo en el respeto por la montaña, el trabajo en equipo y el valor de superar nuestros propios límites. 
+            Acompañarte en el camino no solo significa mostrarte la ruta, sino motivarte, cuidarte y asegurarme de que vivas algo que recordarás con una sonrisa.
+          </p>
+          <!-- Cambia el nombre del archivo abajo por el nombre real de la foto del guía -->
+          <img src="diego_guia.jpg" alt="Foto del guía Diego" class="foto-guia">
+        `;
+      } else if(seccion === 'pico_aguila'){
+        contenido.innerHTML = `
+          <h1>PICO DEL ÁGUILA</h1>
+          <p>
+            A 3,880 msnm, la vista desde el Pico del Águila es un premio para quienes se atreven a desafiar el Ajusco.<br>
+            Si buscas una ruta cercana a la CDMX, con buen desnivel y una cima épica, esta es tu opción. ¿Ya subiste? 
+            Cuéntanos en los comentarios tu experiencia y etiqueta a tu compañero de aventura.<br><br>
+            <b>Distancia:</b> 5-7 km<br>
+            <b>Tiempo:</b> 3-4 horas ida y vuelta<br>
+            <b>Dificultad:</b> Media - ideal para quienes quieren probar alturas más desafiantes.<br><br>
+            Nos vemos en la cima.
+          </p>
+        `;
+      } else {
+        contenido.innerHTML = `<h1>Sección no encontrada</h1>`;
+      }
     }
   </script>
 </body>
