@@ -12,6 +12,7 @@
       line-height: 1.6;
       margin: 0;
       padding: 0;
+      transition: background 1s cubic-bezier(0.4, 0, 0.2, 1);
     }
     nav {
       background: rgba(0,0,0,0.6);
@@ -23,11 +24,13 @@
       text-decoration: none;
       margin: 0 20px;
       font-size: 1.2em;
-      transition: color 0.3s;
+      transition: color 0.3s, transform 0.2s;
       cursor: pointer;
+      display: inline-block;
     }
     nav a:hover {
       color: #ffd700;
+      transform: scale(1.12);
     }
     .contenido {
       padding: 40px 20px;
@@ -36,6 +39,8 @@
       max-width: 700px;
       margin: auto;
       border-radius: 10px;
+      opacity: 1;
+      animation: fadeIn 0.7s;
     }
     .foto-guia {
       display: block;
@@ -43,6 +48,15 @@
       max-width: 200px;
       border-radius: 50%;
       border: 3px solid #ffd700;
+      animation: fadeInImg 1.2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to   { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInImg {
+      from { opacity: 0; transform: scale(0.9);}
+      to   { opacity: 1; transform: scale(1);}
     }
   </style>
 </head>
@@ -62,81 +76,83 @@
   </div>
   <script>
     function mostrarContenido(seccion, imagen) {
+      // Transición suave del fondo
       document.body.style.background = `url('${imagen}') no-repeat center center fixed`;
       document.body.style.backgroundSize = "cover";
 
       let contenido = document.getElementById('contenido');
+      
+      // Define el nuevo HTML según la sección
+      let html = '';
       if(seccion === 'inicio'){
-        contenido.innerHTML = `
+        html = `
           <h1>Bienvenido a ALTUM CAPRA</h1>
           <p>Página 100% dedicada a una experiencia mágica en la montaña. Explora nuestras expediciones y contacta con nosotros.</p>
         `;
       } else if(seccion === 'expediciones'){
-        contenido.innerHTML = `
+        html = `
           <h1>Expediciones</h1>
           <p>Descubre todas nuestras rutas y aventuras de montaña. ¡Elige tu próxima expedición!</p>
         `;
       } else if(seccion === 'contacto'){
-  contenido.innerHTML = `
-    <h1>Contacto</h1>
-    <p><b>¿Listo para tu próxima aventura o tienes alguna duda?</b><br>
-    Ya sea que quieras unirte a una ruta, agendar una salida personalizada o simplemente conocer más sobre lo que hacemos, estamos para ayudarte.</p>
-    <ul>
-      <li>📩 <b>Correo:</b> yeyosky_0@icloud.com</li>
-      <li>📞 <b>Teléfono / WhatsApp:</b> 55 7886 2673</li>
-      <li>📸 <b>Instagram:</b> @altumcapra</li>
-      <li>📍 <b>Ubicación:</b> Con base en CDMX, pero exploramos rutas por todo el centro del país.</li>
-    </ul>
-    <b>🕒 Horarios de atención:</b>
-    <ul>
-      <li>Lunes a Viernes — 9:00 a 18:00 hrs</li>
-      <li>Sábados y Domingos — En ruta (respondemos cuando bajamos 😉)</li>
-    </ul>
-    <p><b>¿Te animas a vivir una experiencia diferente?</b><br>
-    Contáctanos y hagamos posible tu próxima cima.</p>
-  `;
-}
+        html = `
+          <h1>Contacto</h1>
+          <p><b>¿Listo para tu próxima aventura o tienes alguna duda?</b><br>
+          Ya sea que quieras unirte a una ruta, agendar una salida personalizada o simplemente conocer más sobre lo que hacemos, estamos para ayudarte.</p>
+          <ul>
+            <li>📩 <b>Correo:</b> yeyosky_0@icloud.com</li>
+            <li>📞 <b>Teléfono / WhatsApp:</b> 55 7886 2673</li>
+            <li>📸 <b>Instagram:</b> @altumcapra</li>
+            <li>📍 <b>Ubicación:</b> Con base en CDMX, pero exploramos rutas por todo el centro del país.</li>
+          </ul>
+          <b>🕒 Horarios de atención:</b>
+          <ul>
+            <li>Lunes a Viernes — 9:00 a 18:00 hrs</li>
+            <li>Sábados y Domingos — En ruta (respondemos cuando bajamos 😉)</li>
+          </ul>
+          <p><b>¿Te animas a vivir una experiencia diferente?</b><br>
+          Contáctanos y hagamos posible tu próxima cima.</p>
+        `;
       } else if(seccion === 'galeria'){
-        contenido.innerHTML = `
+        html = `
           <h1>Galería</h1>
           <p>Explora fotos de nuestras aventuras pasadas y anímate a sumarte a la siguiente.</p>
         `;
       } else if(seccion === 'sobre_nosotros'){
-  contenido.innerHTML = `
-    <h1>Sobre Nosotros</h1>
-    <h2>¿Quiénes somos?</h2>
-    <p>
-      Altum Capra nació del amor por la montaña, la aventura y la libertad de ir siempre un poco más alto. Somos una comunidad creada por y para personas que buscan más que una caminata: buscan una experiencia real, una conexión profunda con la naturaleza y con ellas mismas. Lo que comenzó como una idea entre amigos hoy es un movimiento que inspira a explorar sin miedo y vivir con propósito.
-    </p>
-    <h3>Nuestra misión</h3>
-    <p>
-      Conectar a las personas con la montaña a través de experiencias auténticas, seguras y llenas de buena vibra. Queremos que cada ruta sea una oportunidad para descubrir nuevos paisajes, pero también para descubrirse a uno mismo.
-    </p>
-    <h3>Nuestra visión</h3>
-    <p>
-      Ser una referencia en montañismo responsable y accesible en México. Formar una comunidad sólida donde cada paso cuente, donde se valore el respeto por la naturaleza y se inspire a más personas a vivir con libertad y propósito.
-    </p>
-    <h3>Nuestros valores</h3>
-    <ul>
-      <li>🌄 <b>Buena energía:</b> Siempre positivos, siempre con la mejor actitud. La vibra se contagia.</li>
-      <li>🛡️ <b>Seguridad ante todo:</b> Planeamos, cuidamos y prevenimos para que cada aventura sea confiable.</li>
-      <li>🌱 <b>Respeto por la naturaleza:</b> Cuidamos los lugares que exploramos. Amamos la montaña, no la dejamos peor de como la encontramos.</li>
-      <li>🤝 <b>Comunidad y equipo:</b> Aquí nadie se queda atrás. Caminamos juntos, crecemos juntos.</li>
-      <li>🔥 <b>Superación personal:</b> Cada ruta es un reto. Cada cima conquistada, una versión mejor de ti.</li>
-    </ul>
-    <h3>¿Qué nos hace diferentes?</h3>
-    <p>
-      En Altum Capra no solo te guiamos por una ruta: caminamos contigo, te motivamos, te escuchamos y celebramos cada logro. No somos una agencia fría, somos una tribu que vibra con la naturaleza, con energía honesta y con ganas de compartir. Aquí las cimas se disfrutan más porque las subes acompañado, con confianza y con el corazón lleno.
-    </p>
-    <h3>¿Te unes?</h3>
-    <p>
-      Altum Capra es para quien busca más que un destino. Es para quien quiere crecer, conectar, reír, cansarse, respirar profundo y sentirse libre.<br>
-      <b>Explora más alto, vive más libre.</b>
-    </p>
-  `;
-}
+        html = `
+          <h1>Sobre Nosotros</h1>
+          <h2>¿Quiénes somos?</h2>
+          <p>
+            Altum Capra nació del amor por la montaña, la aventura y la libertad de ir siempre un poco más alto. Somos una comunidad creada por y para personas que buscan más que una caminata: buscan una experiencia transformadora.
+          </p>
+          <h3>Nuestra misión</h3>
+          <p>
+            Conectar a las personas con la montaña a través de experiencias auténticas, seguras y llenas de buena vibra. Queremos que cada ruta sea una oportunidad para descubrir nuevos paisajes, pero también una versión mejor de ti.
+          </p>
+          <h3>Nuestra visión</h3>
+          <p>
+            Ser una referencia en montañismo responsable y accesible en México. Formar una comunidad sólida donde cada paso cuente, donde se valore el respeto por la naturaleza y se inspire a más personas a salir a la montaña.
+          </p>
+          <h3>Nuestros valores</h3>
+          <ul>
+            <li>🌄 <b>Buena energía:</b> Siempre positivos, siempre con la mejor actitud. La vibra se contagia.</li>
+            <li>🛡️ <b>Seguridad ante todo:</b> Planeamos, cuidamos y prevenimos para que cada aventura sea confiable.</li>
+            <li>🌱 <b>Respeto por la naturaleza:</b> Cuidamos los lugares que exploramos. Amamos la montaña, no la dejamos peor de como la encontramos.</li>
+            <li>🤝 <b>Comunidad y equipo:</b> Aquí nadie se queda atrás. Caminamos juntos, crecemos juntos.</li>
+            <li>🔥 <b>Superación personal:</b> Cada ruta es un reto. Cada cima conquistada, una versión mejor de ti.</li>
+          </ul>
+          <h3>¿Qué nos hace diferentes?</h3>
+          <p>
+            En Altum Capra no solo te guiamos por una ruta: caminamos contigo, te motivamos, te escuchamos y celebramos cada logro. No somos una agencia fría, somos una tribu que vibra con la naturaleza, con la aventura y con la vida.
+          </p>
+          <h3>¿Te unes?</h3>
+          <p>
+            Altum Capra es para quien busca más que un destino. Es para quien quiere crecer, conectar, reír, cansarse, respirar profundo y sentirse libre.<br>
+            <b>Explora más alto, vive más libre.</b>
+          </p>
+        `;
       } else if(seccion === 'guias'){
-        contenido.innerHTML = `
+        html = `
           <h1>Diego – Guía de montaña</h1>
           <p>
             Soy una persona alegre, apasionada por la naturaleza y siempre lista para compartir buena vibra en cada aventura. 
@@ -144,11 +160,10 @@
             Creo en el respeto por la montaña, el trabajo en equipo y el valor de superar nuestros propios límites. 
             Acompañarte en el camino no solo significa mostrarte la ruta, sino motivarte, cuidarte y asegurarme de que vivas algo que recordarás con una sonrisa.
           </p>
-          <!-- Cambia el nombre del archivo abajo por el nombre real de la foto del guía -->
           <img src="diego_guia.jpg" alt="Foto del guía Diego" class="foto-guia">
         `;
       } else if(seccion === 'pico_aguila'){
-        contenido.innerHTML = `
+        html = `
           <h1>PICO DEL ÁGUILA</h1>
           <p>
             A 3,880 msnm, la vista desde el Pico del Águila es un premio para quienes se atreven a desafiar el Ajusco.<br>
@@ -161,8 +176,15 @@
           </p>
         `;
       } else {
-        contenido.innerHTML = `<h1>Sección no encontrada</h1>`;
+        html = `<h1>Sección no encontrada</h1>`;
       }
+      
+      // Actualiza el contenido y reinicia la animación
+      contenido.innerHTML = html;
+      contenido.style.animation = 'none';
+      // Forzar reflow para reiniciar animación
+      void contenido.offsetWidth;
+      contenido.style.animation = null;
     }
   </script>
 </body>
