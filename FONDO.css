@@ -87,7 +87,75 @@ nav a:hover, nav a.active {
   transform: scale(1.08);
 }
 
-/* Responsive styles */
+/* Tendedero de imágenes */
+.tendedero {
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 50px 0 30px 0;
+  background: transparent;
+  position: relative;
+  overflow-x: auto;
+  min-height: 170px;
+}
+.tendedero img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.20);
+  border: 3px solid #ffd700;
+  transition: 
+    transform 0.3s cubic-bezier(.34,1.56,.64,1),
+    box-shadow 0.3s,
+    z-index 0.3s;
+  background: #fff8;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+.tendedero img:hover {
+  /* Efecto oscilante y zoom */
+  animation: oscilate 0.45s ease;
+  transform: rotate(-10deg) scale(1.12) translateY(-18px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.28);
+  z-index: 10;
+  border-color: #38ada9;
+}
+@keyframes oscilate {
+  0%   { transform: rotate(0)   scale(1.12) translateY(-18px);}
+  30%  { transform: rotate(-22deg) scale(1.12) translateY(-18px);}
+  60%  { transform: rotate(12deg) scale(1.12) translateY(-18px);}
+  100% { transform: rotate(-10deg) scale(1.12) translateY(-18px);}
+}
+/* Línea del tendedero */
+.tendedero:before {
+  content: "";
+  position: absolute;
+  left: 10px; right: 10px;
+  top: 44px;
+  height: 2.5px;
+  background: linear-gradient(90deg, #ffd700 60%, #38ada9 100%);
+  z-index: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 6px #0004;
+}
+/* Pinzas (triángulos) para cada imagen */
+.tendedero img::before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 18px solid #ffd700;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* RESPONSIVE */
 @media (max-width: 700px) {
   html { font-size: 15px; }
   nav {
@@ -105,7 +173,12 @@ nav a:hover, nav a.active {
     font-size: 1em;
     padding: 0;
   }
+  .tendedero img {
+    width: 90px;
+    height: 90px;
+  }
 }
 @media (max-width: 450px) {
   nav a { font-size: 0.95em !important; padding: 7px 3px !important; min-width: 70px;}
+  .tendedero img { width: 70px; height: 70px; }
 }
