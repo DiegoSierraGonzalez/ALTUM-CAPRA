@@ -218,5 +218,124 @@
             <li>🛡️ <b>Seguridad ante todo:</b> Planeamos, cuidamos y prevenimos para que cada aventura sea confiable.</li>
             <li>🌱 <b>Respeto por la naturaleza:</b> Cuidamos los lugares que exploramos. Amamos la montaña, no la dejamos peor de como la encontramos.</li>
             <li>🤝 <b>Comunidad y equipo:</b> Aquí nadie se queda atrás. Caminamos juntos, crecemos juntos.</li>
-            <li>🔥 <b>Superación`*
-
+            <li>🔥 <b>Superación personal:</b> Cada ruta es un reto. Cada cima conquistada, una versión mejor de ti.</li>
+          </ul>
+          <h3>¿Qué nos hace diferentes?</h3>
+          <p>
+            En Altum Capra no solo te guiamos por una ruta: caminamos contigo, te motivamos, te escuchamos y celebramos cada logro. No somos una agencia fría, somos una tribu que vibra con la naturaleza, con la aventura y con la vida.
+          </p>
+          <h3>¿Te unes?</h3>
+          <p>
+            Altum Capra es para quien busca más que un destino. Es para quien quiere crecer, conectar, reír, cansarse, respirar profundo y sentirse libre.<br>
+            <b>Explora más alto, vive más libre.</b>
+          </p>
+        `
+      },
+      guias: {
+        imagen: 'FONDO GUIA.jpg',
+        html: `
+          <h1>Diego – Guía de montaña</h1>
+          <p>
+            Soy una persona alegre, apasionada por la naturaleza y siempre lista para compartir buena vibra en cada aventura. 
+            Como guía, mi prioridad es que cada experiencia sea segura, auténtica y enriquecedora. 
+            Creo en el respeto por la montaña, el trabajo en equipo y el valor de superar nuestros propios límites. 
+            Acompañarte en el camino no solo significa mostrarte la ruta, sino motivarte, cuidarte y asegurarme de que vivas algo que recordarás con una sonrisa.
+          </p>
+          <img src="diego_guia.jpg" alt="Foto del guía Diego" class="foto-guia">
+        `
+      },
+      ranking: {
+        imagen: 'fondo_pico_aguila.jpg',
+        html: `
+          <h1>Ranking de Aventureros</h1>
+          <p>¡Conoce a quienes más han conquistado el Pico del Águila con ALTUM CAPRA!</p>
+          <table class="ranking-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Aventurero</th>
+                <th>Expediciones</th>
+                <th>Puntos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><b>Yeyo</b> 🥇</td>
+                <td>7</td>
+                <td>350</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><b>Rollito</b> 🥈</td>
+                <td>6</td>
+                <td>320</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><b>Meldy</b> 🥉</td>
+                <td>5</td>
+                <td>295</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><b>Diego Sierra</b></td>
+                <td>4</td>
+                <td>260</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><b>Ana Torres</b></td>
+                <td>3</td>
+                <td>220</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top:20px;color:#ffe066;">¿Quieres aparecer en el ranking? ¡Suma expediciones y puntos en cada ruta!</p>
+        `
+      }
+    };
+
+    // Cambia el contenido y fondo según la pestaña seleccionada
+    function mostrarContenido(seccion) {
+      const datos = SECCIONES[seccion];
+      if (datos) {
+        document.body.style.background = `url('${datos.imagen}') no-repeat center center fixed`;
+        document.body.style.backgroundSize = "cover";
+        const contenido = document.getElementById('contenido');
+        contenido.innerHTML = datos.html;
+        contenido.style.animation = 'none';
+        void contenido.offsetWidth; // reinicia animación
+        contenido.style.animation = null;
+      } else {
+        document.getElementById('contenido').innerHTML = `<h1>Sección no encontrada</h1>`;
+      }
+      // Actualiza el estado activo en el menú
+      document.querySelectorAll('nav a').forEach(a => {
+        if(a.dataset.seccion === seccion) {
+          a.classList.add('active');
+        } else {
+          a.classList.remove('active');
+        }
+      });
+    }
+
+    // Función para mostrar información de cada expedición
+    function mostrarExpedicion(nombre) {
+      const info = EXPEDICIONES[nombre] ? EXPEDICIONES[nombre].descripcion : "<p>Expedición no encontrada.</p>";
+      document.getElementById("info-expedicion").innerHTML = info;
+    }
+
+    // Evento del menú de navegación
+    document.querySelectorAll('nav a').forEach(a => {
+      a.onclick = function(e) {
+        e.preventDefault();
+        mostrarContenido(a.dataset.seccion);
+      }
+    });
+
+    // Muestra la sección de inicio al cargar
+    mostrarContenido('inicio');
+  </script>
+</body>
+</html>
