@@ -2,81 +2,144 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>ALTUM CAPRA</title>
+  <title>ALTUM CAPRA - Experiencia en la Montaña</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
   <style>
     body {
-      background: url('mi_foto_montaña.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
       margin: 0;
-      padding: 0;
-      transition: background 1s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #222831;
+      color: #fff;
+      min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 0.5s;
+      scroll-behavior: smooth;
     }
     nav {
-      background: rgba(0,0,0,0.7);
-      padding: 18px 0 10px 0;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      background: rgba(34, 40, 49, 0.85);
+      padding: 16px 0 12px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     nav a {
-      color: #ffd700;
-      text-decoration: none;
-      margin: 0 24px;
-      font-size: 1.3em;
-      transition: color 0.3s, transform 0.2s;
-      cursor: pointer;
-      display: inline-block;
-      padding: 6px 2px;
-      font-weight: bold;
-    }
-    nav a:hover, nav a.active {
       color: #fff;
-      border-bottom: 2px solid #ffd700;
-      transform: scale(1.10);
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    nav a.active, nav a:hover {
+      background: linear-gradient(90deg, #ffd700 0%, #ffe066 100%);
+      color: #222831;
+      font-weight: bold;
+      box-shadow: 0 4px 16px rgba(255,215,0,0.19);
+      transform: scale(1.06);
     }
     .contenido {
       padding: 40px 20px;
       min-height: 80vh;
-      background: rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.78);
       max-width: 700px;
       margin: 30px auto 0 auto;
       border-radius: 10px;
+      color: #fff;
+      font-size: 1.15em;
       opacity: 1;
       animation: fadeIn 0.7s;
-    }
-    .foto-guia {
-      display: block;
-      margin: 20px auto 0 auto;
-      max-width: 200px;
-      border-radius: 50%;
-      border: 3px solid #ffd700;
-      animation: fadeInImg 1.2s;
-    }
-    .boton-expedicion {
-      background: #222831;
-      color: #ffd700;
-      border: none;
-      padding: 12px 18px;
-      margin: 8px 10px 8px 0;
-      border-radius: 7px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-      display: inline-block;
-    }
-    .boton-expedicion:hover {
-      background: #393e46;
-      transform: scale(1.07);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+      text-shadow: 1px 1px 4px #000, 0 0 2px #333;
+      backdrop-filter: blur(7px) saturate(120%);
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(30px);}
-      to   { opacity: 1; transform: translateY(0);}
+      to { opacity: 1; transform: translateY(0);}
     }
-    @keyframes fadeInImg {
-      from { opacity: 0; transform: scale(0.9);}
-      to   { opacity: 1; transform: scale(1);}
+    h1, h2 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      letter-spacing: 1.5px;
+      color: #ffd700;
+      text-shadow: 2px 2px 6px #111;
+    }
+    h3, h4, h5 {
+      color: #ffe066;
+    }
+    .boton-expedicion {
+      background: #ffd700;
+      color: #222831;
+      padding: 12px 32px;
+      border: none;
+      border-radius: 7px;
+      font-weight: bold;
+      font-size: 1.02em;
+      margin: 22px 0;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 2px 12px rgba(255,215,0,0.10);
+      letter-spacing: 1px;
+    }
+    .boton-expedicion:hover {
+      background: linear-gradient(90deg, #ffd700 0%, #ffe066 100%);
+      color: #222831;
+      font-weight: bold;
+      box-shadow: 0 4px 16px rgba(255,215,0,0.19);
+      transform: scale(1.03);
+    }
+    .foto-guia {
+      width: 110px;
+      border-radius: 50%;
+      border: 3px solid #ffd700;
+      margin-right: 18px;
+      vertical-align: middle;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+    }
+    .perfil-guia {
+      display: flex;
+      align-items: center;
+      margin-bottom: 19px;
+    }
+    .perfil-guia div {
+      flex: 1;
+    }
+    ul {
+      margin-left: 18px;
+      color: #fff;
+    }
+    @media (max-width: 700px) {
+      .contenido { max-width: 98vw; padding: 18px 2vw; font-size: 1em;}
+      nav { flex-wrap: wrap; gap: 6px; }
+      nav a { font-size: 1em; margin: 0 8px;}
+      .perfil-guia { flex-direction: column; text-align: center;}
+      .foto-guia { margin-bottom: 12px; margin-right: 0;}
+    }
+    /* Scroll personalizado */
+    body::-webkit-scrollbar { width: 12px; }
+    body::-webkit-scrollbar-thumb { background: #222831; border-radius: 8px; }
+    body::-webkit-scrollbar-track { background: #111418; }
+    /* Ranking Table Styles */
+    #ranking-aventureros table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 18px;
+    }
+    #ranking-aventureros th, #ranking-aventureros td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #ffd70022;
+    }
+    #ranking-aventureros tr:hover {
+      background: rgba(255, 215, 0, 0.12);
+      transition: background 0.3s;
+    }
+    #ranking-aventureros th {
+      background: rgba(34, 40, 49, 0.62);
     }
   </style>
 </head>
@@ -89,194 +152,175 @@
     <a href="#" data-seccion="sobre_nosotros">Sobre Nosotros</a>
     <a href="#" data-seccion="guias">Guías</a>
     <a href="#" data-seccion="pico_aguila">Pico del Águila</a>
+    <a href="#" data-seccion="opiniones">Ranking</a>
   </nav>
-  <div class="contenido" id="contenido"></div>
-  <script>
-    // Expediciones interactivas
-    const EXPEDICIONES = {
-      pico_aguila: {
-        nombre: "Pico del Águila",
-        descripcion: `
-          <h2>Pico del Águila</h2>
-          <p><b>Altitud:</b> 3,880 msnm</p>
-          <p><b>Distancia:</b> 5-7 km</p>
-          <p><b>Tiempo:</b> 3-4 horas ida y vuelta</p>
-          <p><b>Dificultad:</b> Media</p>
-          <p>La vista desde el Pico del Águila es un premio para quienes se atreven a desafiar el Ajusco. ¿Ya subiste?</p>
-        `
-      },
-      iztaccihuatl: {
-        nombre: "Iztaccíhuatl",
-        descripcion: `
-          <h2>Iztaccíhuatl</h2>
-          <p><b>Altitud:</b> 5,230 msnm</p>
-          <p><b>Distancia:</b> 14 km aprox.</p>
-          <p><b>Tiempo:</b> 8-12 horas ida y vuelta</p>
-          <p><b>Dificultad:</b> Alta</p>
-          <p>Una de las montañas más emblemáticas de México. Ideal para quienes buscan un gran reto y vistas espectaculares.</p>
-        `
-      },
-      nevado_toluca: {
-        nombre: "Nevado de Toluca",
-        descripcion: `
-          <h2>Nevado de Toluca</h2>
-          <p><b>Altitud:</b> 4,680 msnm</p>
-          <p><b>Distancia:</b> 8-12 km</p>
-          <p><b>Tiempo:</b> 6-8 horas ida y vuelta</p>
-          <p><b>Dificultad:</b> Media-Alta</p>
-          <p>Un cráter impresionante con lagunas en la cima, perfecto para fotografía y aventura.</p>
-        `
-      }
-    };
 
-    // Secciones principales
+  <div class="contenido" id="contenido">
+    <!-- El contenido dinámico aparecerá aquí -->
+  </div>
+
+  <script>
     const SECCIONES = {
       inicio: {
-        imagen: 'mi_foto_montaña.jpg',
-        html: `<h1>Bienvenido a ALTUM CAPRA</h1><p>Página 100% dedicada a una experiencia mágica en la montaña. Explora nuestras expediciones y contacta con nosotros.</p>`
+        imagen: 'fondo_inicio.jpg',
+        html: `
+          <h1>Bienvenido a ALTUM CAPRA</h1>
+          <p>Página 100% dedicada a una experiencia mágica en la montaña, donde podrás encontrar más información respecto a las expediciones.</p>
+          <p>Explora nuestras rutas, conoce a los guías y únete a la aventura.</p>
+        `
       },
       expediciones: {
-        imagen: 'FONDO EXPE.jpg',
+        imagen: 'fondo_expediciones.jpg',
         html: `
           <h1>Expediciones</h1>
-          <div id="lista-expediciones">
-            <button class="boton-expedicion" onclick="mostrarExpedicion('pico_aguila')">Pico del Águila</button>
-            <button class="boton-expedicion" onclick="mostrarExpedicion('iztaccihuatl')">Iztaccíhuatl</button>
-            <button class="boton-expedicion" onclick="mostrarExpedicion('nevado_toluca')">Nevado de Toluca</button>
-          </div>
-          <div id="info-expedicion" style="margin-top:30px;"></div>
-          <p style="margin-top:30px;">¡Elige una expedición para ver más información!</p>
+          <ul>
+            <li><b>Pico del Águila</b> - Ruta clásica, dificultad media, duración: 1 día</li>
+            <li><b>Cerro Alto</b> - Ruta panorámica, dificultad alta, duración: 2 días</li>
+            <li><b>Valle Encantado</b> - Ruta familiar, dificultad baja, duración: 1 día</li>
+          </ul>
+          <button class="boton-expedicion">¡Reserva tu lugar!</button>
         `
       },
       contacto: {
-        imagen: 'FONDO CONTACTO.jpg',
+        imagen: 'fondo_contacto.jpg',
         html: `
           <h1>Contacto</h1>
-          <p><b>¿Listo para tu próxima aventura o tienes alguna duda?</b><br>
-          Ya sea que quieras unirte a una ruta, agendar una salida personalizada o simplemente conocer más sobre lo que hacemos, estamos para ayudarte.</p>
-          <ul>
-            <li>📩 <b>Correo:</b> yeyosky_0@icloud.com</li>
-            <li>📞 <b>Teléfono / WhatsApp:</b> 55 7886 2673</li>
-            <li>📸 <b>Instagram:</b> @altumcapra</li>
-            <li>📍 <b>Ubicación:</b> Con base en CDMX, pero exploramos rutas por todo el centro del país.</li>
-          </ul>
-          <b>🕒 Horarios de atención:</b>
-          <ul>
-            <li>Lunes a Viernes — 9:00 a 18:00 hrs</li>
-            <li>Sábados y Domingos — En ruta (respondemos cuando bajamos 😉)</li>
-          </ul>
-          <p><b>¿Te animas a vivir una experiencia diferente?</b><br>
-          Contáctanos y hagamos posible tu próxima cima.</p>
+          <p>¿Tienes dudas o quieres reservar una expedición? ¡Escríbenos!</p>
+          <form>
+            <input type="text" placeholder="Nombre" required style="margin-bottom:8px; padding:6px; border-radius:5px; border:none; width:95%;"><br>
+            <input type="email" placeholder="Correo electrónico" required style="margin-bottom:8px; padding:6px; border-radius:5px; border:none; width:95%;"><br>
+            <textarea placeholder="Tu mensaje" required style="margin-bottom:8px; padding:8px; border-radius:5px; border:none; width:95%;" rows="3"></textarea><br>
+            <button type="submit" class="boton-expedicion" style="width: 50%;">Enviar</button>
+          </form>
         `
       },
       galeria: {
-        imagen: 'Fondo Galeria.jpg',
-        html: `<h1>Galería</h1><p>Explora fotos de nuestras aventuras pasadas y anímate a sumarte a la siguiente.</p>`
+        imagen: 'fondo_galeria.jpg',
+        html: `
+          <h1>Galería</h1>
+          <p>Descubre algunos de los mejores momentos de nuestras expediciones.</p>
+          <img src="galeria1.jpg" alt="Expedición 1" style="width:46%;margin:1%;border-radius:8px;">
+          <img src="galeria2.jpg" alt="Expedición 2" style="width:46%;margin:1%;border-radius:8px;">
+          <img src="galeria3.jpg" alt="Expedición 3" style="width:46%;margin:1%;border-radius:8px;">
+          <img src="galeria4.jpg" alt="Expedición 4" style="width:46%;margin:1%;border-radius:8px;">
+        `
       },
       sobre_nosotros: {
-        imagen: 'Fondo SOBRE NOSOTROS.jpg',
+        imagen: 'fondo_sobrenosotros.jpg',
         html: `
           <h1>Sobre Nosotros</h1>
-          <h2>¿Quiénes somos?</h2>
-          <p>
-            Altum Capra nació del amor por la montaña, la aventura y la libertad de ir siempre un poco más alto. Somos una comunidad creada por y para personas que buscan más que una caminata: buscan una experiencia transformadora.
-          </p>
-          <h3>Nuestra misión</h3>
-          <p>
-            Conectar a las personas con la montaña a través de experiencias auténticas, seguras y llenas de buena vibra. Queremos que cada ruta sea una oportunidad para descubrir nuevos paisajes, pero también una versión mejor de ti.
-          </p>
-          <h3>Nuestra visión</h3>
-          <p>
-            Ser una referencia en montañismo responsable y accesible en México. Formar una comunidad sólida donde cada paso cuente, donde se valore el respeto por la naturaleza y se inspire a más personas a salir a la montaña.
-          </p>
-          <h3>Nuestros valores</h3>
-          <ul>
-            <li>🌄 <b>Buena energía:</b> Siempre positivos, siempre con la mejor actitud. La vibra se contagia.</li>
-            <li>🛡️ <b>Seguridad ante todo:</b> Planeamos, cuidamos y prevenimos para que cada aventura sea confiable.</li>
-            <li>🌱 <b>Respeto por la naturaleza:</b> Cuidamos los lugares que exploramos. Amamos la montaña, no la dejamos peor de como la encontramos.</li>
-            <li>🤝 <b>Comunidad y equipo:</b> Aquí nadie se queda atrás. Caminamos juntos, crecemos juntos.</li>
-            <li>🔥 <b>Superación personal:</b> Cada ruta es un reto. Cada cima conquistada, una versión mejor de ti.</li>
-          </ul>
-          <h3>¿Qué nos hace diferentes?</h3>
-          <p>
-            En Altum Capra no solo te guiamos por una ruta: caminamos contigo, te motivamos, te escuchamos y celebramos cada logro. No somos una agencia fría, somos una tribu que vibra con la naturaleza, con la aventura y con la vida.
-          </p>
-          <h3>¿Te unes?</h3>
-          <p>
-            Altum Capra es para quien busca más que un destino. Es para quien quiere crecer, conectar, reír, cansarse, respirar profundo y sentirse libre.<br>
-            <b>Explora más alto, vive más libre.</b>
-          </p>
+          <p>Somos un equipo apasionado por la montaña, la naturaleza y las grandes experiencias. Nuestro objetivo es acercarte a la aventura de manera segura y divertida.</p>
         `
       },
       guias: {
-        imagen: 'FONDO GUIA.jpg',
+        imagen: 'fondo_guias.jpg',
         html: `
-          <h1>Diego – Guía de montaña</h1>
-          <p>
-            Soy una persona alegre, apasionada por la naturaleza y siempre lista para compartir buena vibra en cada aventura. 
-            Como guía, mi prioridad es que cada experiencia sea segura, auténtica y enriquecedora. 
-            Creo en el respeto por la montaña, el trabajo en equipo y el valor de superar nuestros propios límites. 
-            Acompañarte en el camino no solo significa mostrarte la ruta, sino motivarte, cuidarte y asegurarme de que vivas algo que recordarás con una sonrisa.
-          </p>
-          <img src="diego_guia.jpg" alt="Foto del guía Diego" class="foto-guia">
+          <h1>Guías</h1>
+          <div class="perfil-guia">
+            <img src="diego_guia.jpg" alt="Foto de Diego, guía de montaña" class="foto-guia">
+            <div>
+              <b>Diego Sierra</b><br>
+              Montañista certificado y fundador de ALTUM CAPRA. <br>
+              Experto en rutas de la región y amante de la aventura.
+            </div>
+          </div>
+          <div class="perfil-guia">
+            <img src="sofia_guia.jpg" alt="Foto de Sofía, guía de montaña" class="foto-guia">
+            <div>
+              <b>Sofía Ramírez</b><br>
+              Guía experimentada en rutas de alta montaña.<br>
+              Creadora de experiencias inolvidables para todo el grupo.
+            </div>
+          </div>
         `
       },
-      OPINIONES: {
-        imagen: 'Fondo Galeria.jpg',
+      pico_aguila: {
+        imagen: 'fondo_pico_aguila.jpg',
         html: `
-          <h1>OPINIONES Y SUGERENCIAS</h1>
-          <p>
-            A 3,880 msnm, la vista desde el Pico del Águila es un premio para quienes se atreven a desafiar el Ajusco.<br>
-            Si buscas una ruta cercana a la CDMX, con buen desnivel y una cima épica, esta es tu opción. ¿Ya subiste? 
-            Cuéntanos en los comentarios tu experiencia y etiqueta a tu compañero de aventura.<br><br>
-            <b>Distancia:</b> 5-7 km<br>
-            <b>Tiempo:</b> 3-4 horas ida y vuelta<br>
-            <b>Dificultad:</b> Media - ideal para quienes quieren probar alturas más desafiantes.<br><br>
-            Nos vemos en la cima.
-          </p>
+          <h1>Pico del Águila</h1>
+          <p>La ruta más emblemática de ALTUM CAPRA. Vive una experiencia única llegando a la cima, observando paisajes sorprendentes y superando tus límites.</p>
+          <ul>
+            <li>Dificultad: Media</li>
+            <li>Duración: 1 día</li>
+            <li>Distancia: 12 km</li>
+            <li>Altitud máxima: 3,200 msnm</li>
+          </ul>
+        `
+      },
+      opiniones: {
+        imagen: 'fondo_pico_aguila.jpg',
+        html: `
+          <h1>Ranking de Aventureros</h1>
+          <p>¡Conoce a quienes más han conquistado el Pico del Águila con ALTUM CAPRA!</p>
+          <div id="ranking-aventureros">
+            <table style="width:100%;background:rgba(0,0,0,0.25);border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.12);color:#fff;margin-bottom:20px;">
+              <thead>
+                <tr style="color:#ffd700;font-size:1.1em;">
+                  <th style="padding:10px;">#</th>
+                  <th style="padding:10px;">Aventurero</th>
+                  <th style="padding:10px;">Expediciones</th>
+                  <th style="padding:10px;">Puntos</th>
+                </tr>
+              </thead>
+              <tbody id="tabla-ranking">
+                <tr>
+                  <td style="text-align:center;">1</td>
+                  <td><b>María López</b> 🥇</td>
+                  <td style="text-align:center;">7</td>
+                  <td style="text-align:center;">350</td>
+                </tr>
+                <tr>
+                  <td style="text-align:center;">2</td>
+                  <td><b>Juan Pérez</b> 🥈</td>
+                  <td style="text-align:center;">6</td>
+                  <td style="text-align:center;">320</td>
+                </tr>
+                <tr>
+                  <td style="text-align:center;">3</td>
+                  <td><b>Sofía Ramírez</b> 🥉</td>
+                  <td style="text-align:center;">5</td>
+                  <td style="text-align:center;">295</td>
+                </tr>
+                <tr>
+                  <td style="text-align:center;">4</td>
+                  <td><b>Diego Sierra</b></td>
+                  <td style="text-align:center;">4</td>
+                  <td style="text-align:center;">260</td>
+                </tr>
+                <tr>
+                  <td style="text-align:center;">5</td>
+                  <td><b>Ana Torres</b></td>
+                  <td style="text-align:center;">3</td>
+                  <td style="text-align:center;">220</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:20px;color:#ffe066;">¿Quieres aparecer en el ranking? ¡Suma expediciones y puntos en cada ruta!</p>
         `
       }
     };
 
-    // Cambia el contenido y fondo según la pestaña seleccionada
     function mostrarContenido(seccion) {
-      const datos = SECCIONES[seccion];
-      if (datos) {
-        document.body.style.background = `url('${datos.imagen}') no-repeat center center fixed`;
-        document.body.style.backgroundSize = "cover";
-        const contenido = document.getElementById('contenido');
-        contenido.innerHTML = datos.html;
-        contenido.style.animation = 'none';
-        void contenido.offsetWidth; // reinicia animación
-        contenido.style.animation = null;
-      } else {
-        document.getElementById('contenido').innerHTML = `<h1>Sección no encontrada</h1>`;
-      }
-      // Actualiza el estado activo en el menú
-      document.querySelectorAll('nav a').forEach(a => {
-        if(a.dataset.seccion === seccion) {
-          a.classList.add('active');
-        } else {
-          a.classList.remove('active');
-        }
-      });
+      const contenido = document.getElementById('contenido');
+      contenido.innerHTML = SECCIONES[seccion].html || '<h1>Sección en construcción</h1>';
+      document.body.style.backgroundImage = `url('${SECCIONES[seccion].imagen}')`;
+
+      // Actualiza la barra de navegación
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      document.querySelector(`nav a[data-seccion="${seccion}"]`).classList.add('active');
     }
 
-    // Función para mostrar información de cada expedición
-    function mostrarExpedicion(nombre) {
-      const info = EXPEDICIONES[nombre] ? EXPEDICIONES[nombre].descripcion : "<p>Expedición no encontrada.</p>";
-      document.getElementById("info-expedicion").innerHTML = info;
-    }
-
-    // Evento del menú de navegación
+    // Evento de navegación
     document.querySelectorAll('nav a').forEach(a => {
-      a.onclick = function(e) {
+      a.addEventListener('click', function(e){
         e.preventDefault();
-        mostrarContenido(a.dataset.seccion);
-      }
+        const seccion = this.getAttribute('data-seccion');
+        mostrarContenido(seccion);
+      });
     });
 
-    // Muestra la sección de inicio al cargar
+    // Carga inicial
     mostrarContenido('inicio');
   </script>
 </body>
