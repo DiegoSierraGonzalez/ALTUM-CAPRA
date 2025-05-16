@@ -120,27 +120,9 @@
       .perfil-guia { flex-direction: column; text-align: center;}
       .foto-guia { margin-bottom: 12px; margin-right: 0;}
     }
-    /* Scroll personalizado */
     body::-webkit-scrollbar { width: 12px; }
     body::-webkit-scrollbar-thumb { background: #222831; border-radius: 8px; }
     body::-webkit-scrollbar-track { background: #111418; }
-    /* Ranking Table Styles */
-    #ranking-aventureros table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 18px;
-    }
-    #ranking-aventureros th, #ranking-aventureros td {
-      padding: 10px 8px;
-      border-bottom: 1px solid #ffd70022;
-    }
-    #ranking-aventureros tr:hover {
-      background: rgba(255, 215, 0, 0.12);
-      transition: background 0.3s;
-    }
-    #ranking-aventureros th {
-      background: rgba(34, 40, 49, 0.62);
-    }
   </style>
 </head>
 <body>
@@ -152,7 +134,7 @@
     <a href="#" data-seccion="sobre_nosotros">Sobre Nosotros</a>
     <a href="#" data-seccion="guias">Guías</a>
     <a href="#" data-seccion="pico_aguila">Pico del Águila</a>
-    <a href="#" data-seccion="opiniones">Ranking</a>
+    <a href="#" data-seccion="ranking">Ranking</a>
   </nav>
 
   <div class="contenido" id="contenido">
@@ -247,56 +229,11 @@
           </ul>
         `
       },
-      opiniones: {
+      ranking: {
         imagen: 'fondo_pico_aguila.jpg',
         html: `
           <h1>Ranking de Aventureros</h1>
-          <p>¡Conoce a quienes más han conquistado el Pico del Águila con ALTUM CAPRA!</p>
-          <div id="ranking-aventureros">
-            <table style="width:100%;background:rgba(0,0,0,0.25);border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.12);color:#fff;margin-bottom:20px;">
-              <thead>
-                <tr style="color:#ffd700;font-size:1.1em;">
-                  <th style="padding:10px;">#</th>
-                  <th style="padding:10px;">Aventurero</th>
-                  <th style="padding:10px;">Expediciones</th>
-                  <th style="padding:10px;">Puntos</th>
-                </tr>
-              </thead>
-              <tbody id="tabla-ranking">
-                <tr>
-                  <td style="text-align:center;">1</td>
-                  <td><b>María López</b> 🥇</td>
-                  <td style="text-align:center;">7</td>
-                  <td style="text-align:center;">350</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center;">2</td>
-                  <td><b>Juan Pérez</b> 🥈</td>
-                  <td style="text-align:center;">6</td>
-                  <td style="text-align:center;">320</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center;">3</td>
-                  <td><b>Sofía Ramírez</b> 🥉</td>
-                  <td style="text-align:center;">5</td>
-                  <td style="text-align:center;">295</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center;">4</td>
-                  <td><b>Diego Sierra</b></td>
-                  <td style="text-align:center;">4</td>
-                  <td style="text-align:center;">260</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center;">5</td>
-                  <td><b>Ana Torres</b></td>
-                  <td style="text-align:center;">3</td>
-                  <td style="text-align:center;">220</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p style="margin-top:20px;color:#ffe066;">¿Quieres aparecer en el ranking? ¡Suma expediciones y puntos en cada ruta!</p>
+          <p>¡Próximamente!</p>
         `
       }
     };
