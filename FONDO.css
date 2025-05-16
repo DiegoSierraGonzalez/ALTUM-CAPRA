@@ -1,0 +1,76 @@
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: url('mi_foto_montaña.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  line-height: 1.6;
+  transition: background 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(
+    to bottom,
+    rgba(34,40,49,0.8) 60%,
+    rgba(60,99,130,0.6) 100%
+  ), url('files/tu_imagen.jpg') no-repeat center center;
+  background-size: cover;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #38ada9;
+  opacity: 0;
+  animation: fadeInNav 1.3s ease forwards;
+  animation-delay: 0.5s;
+  box-shadow: 0 2px 12px rgba(34,40,49,0.18);
+}
+
+nav a {
+  color: #ffd700;
+  text-decoration: none;
+  margin: 0 16px;
+  font-size: 1.15em;
+  font-weight: bold;
+  padding: 12px 10px;
+  border-radius: 6px;
+  transition: color 0.3s, background 0.3s, transform 0.2s;
+  display: inline-block;
+}
+nav a:hover, nav a.active {
+  color: #fff;
+  background: rgba(56,173,169,0.20);
+  border-bottom: 2px solid #38ada9;
+  transform: scale(1.08);
+}
+
+@keyframes fadeInNav {
+  from { opacity: 0; transform: translateY(-30px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive styles */
+@media (max-width: 700px) {
+  html { font-size: 15px; }
+  nav {
+    flex-direction: column;
+    padding: 10px 0 5px 0;
+  }
+  nav a {
+    font-size: 1em !important;
+    padding: 9px 6px !important;
+    margin: 4px 2px !important;
+    min-width: 90px;
+    display: block !important;
+  }
+  body {
+    font-size: 1em;
+    padding: 0;
+  }
+}
+@media (max-width: 450px) {
+  nav a { font-size: 0.95em !important; padding: 7px 3px !important; min-width: 70px;}
+}
