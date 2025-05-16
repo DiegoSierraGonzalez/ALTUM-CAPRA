@@ -14,23 +14,18 @@
       padding: 0;
       transition: background 1s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    nav {
-      background: rgba(0,0,0,0.6);
-      padding: 10px 0;
-      text-align: center;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 20px;
-      font-size: 1.2em;
-      transition: color 0.3s, transform 0.2s;
-      cursor: pointer;
-      display: inline-block;
-    }
-    nav a:hover {
+    .menu-select {
+      display: block;
+      margin: 30px auto 0 auto;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      border: none;
+      background: rgba(0,0,0,0.7);
       color: #ffd700;
-      transform: scale(1.12);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      cursor: pointer;
+      outline: none;
     }
     .contenido {
       padding: 40px 20px;
@@ -50,6 +45,22 @@
       border: 3px solid #ffd700;
       animation: fadeInImg 1.2s;
     }
+    .boton-expedicion {
+      background: #222831;
+      color: #ffd700;
+      border: none;
+      padding: 12px 18px;
+      margin: 8px 10px 8px 0;
+      border-radius: 7px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      display: inline-block;
+    }
+    .boton-expedicion:hover {
+      background: #393e46;
+      transform: scale(1.07);
+    }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(30px);}
       to   { opacity: 1; transform: translateY(0);}
@@ -61,41 +72,76 @@
   </style>
 </head>
 <body>
-  <nav>
-    <a onclick="mostrarContenido('inicio', 'mi_foto_montaña.jpg')">Inicio</a>
-    <a onclick="mostrarContenido('expediciones', 'fondo2.jpg')">Expediciones</a>
-    <a onclick="mostrarContenido('contacto', 'FONDO CONTACTO.jpg')">Contacto</a>
-    <a onclick="mostrarContenido('galeria', 'Fondo Galeria.jpg')">Galería</a>
-    <a onclick="mostrarContenido('sobre_nosotros', 'Fondo SOBRE NOSOTROS.jpg')">Sobre Nosotros</a>
-    <a onclick="mostrarContenido('guias', 'FONDO GUIA.jpg')">Guías</a>
-    <a onclick="mostrarContenido('pico_aguila', 'fondo_pico_aguila.jpg')">Pico del Águila</a>
-  </nav>
-  <div class="contenido" id="contenido">
-    <h1>Bienvenido a ALTUM CAPRA</h1>
-    <p>Página 100% dedicada a una experiencia mágica en la montaña. Explora nuestras expediciones y contacta con nosotros.</p>
-  </div>
+  <select class="menu-select" id="menuPestanas">
+    <option value="inicio">Inicio</option>
+    <option value="expediciones">Expediciones</option>
+    <option value="contacto">Contacto</option>
+    <option value="galeria">Galería</option>
+    <option value="sobre_nosotros">Sobre Nosotros</option>
+    <option value="guias">Guías</option>
+    <option value="pico_aguila">Pico del Águila</option>
+  </select>
+  <div class="contenido" id="contenido"></div>
   <script>
-    function mostrarContenido(seccion, imagen) {
-      // Transición suave del fondo
-      document.body.style.background = `url('${imagen}') no-repeat center center fixed`;
-      document.body.style.backgroundSize = "cover";
+    // Expediciones interactivas
+    const EXPEDICIONES = {
+      pico_aguila: {
+        nombre: "Pico del Águila",
+        descripcion: `
+          <h2>Pico del Águila</h2>
+          <p><b>Altitud:</b> 3,880 msnm</p>
+          <p><b>Distancia:</b> 5-7 km</p>
+          <p><b>Tiempo:</b> 3-4 horas ida y vuelta</p>
+          <p><b>Dificultad:</b> Media</p>
+          <p>La vista desde el Pico del Águila es un premio para quienes se atreven a desafiar el Ajusco. ¿Ya subiste?</p>
+        `
+      },
+      iztaccihuatl: {
+        nombre: "Iztaccíhuatl",
+        descripcion: `
+          <h2>Iztaccíhuatl</h2>
+          <p><b>Altitud:</b> 5,230 msnm</p>
+          <p><b>Distancia:</b> 14 km aprox.</p>
+          <p><b>Tiempo:</b> 8-12 horas ida y vuelta</p>
+          <p><b>Dificultad:</b> Alta</p>
+          <p>Una de las montañas más emblemáticas de México. Ideal para quienes buscan un gran reto y vistas espectaculares.</p>
+        `
+      },
+      nevado_toluca: {
+        nombre: "Nevado de Toluca",
+        descripcion: `
+          <h2>Nevado de Toluca</h2>
+          <p><b>Altitud:</b> 4,680 msnm</p>
+          <p><b>Distancia:</b> 8-12 km</p>
+          <p><b>Tiempo:</b> 6-8 horas ida y vuelta</p>
+          <p><b>Dificultad:</b> Media-Alta</p>
+          <p>Un cráter impresionante con lagunas en la cima, perfecto para fotografía y aventura.</p>
+        `
+      }
+    };
 
-      let contenido = document.getElementById('contenido');
-      
-      // Define el nuevo HTML según la sección
-      let html = '';
-      if(seccion === 'inicio'){
-        html = `
-          <h1>Bienvenido a ALTUM CAPRA</h1>
-          <p>Página 100% dedicada a una experiencia mágica en la montaña. Explora nuestras expediciones y contacta con nosotros.</p>
-        `;
-      } else if(seccion === 'expediciones'){
-        html = `
+    // Secciones principales
+    const SECCIONES = {
+      inicio: {
+        imagen: 'mi_foto_montaña.jpg',
+        html: `<h1>Bienvenido a ALTUM CAPRA</h1><p>Página 100% dedicada a una experiencia mágica en la montaña. Explora nuestras expediciones y contacta con nosotros.</p>`
+      },
+      expediciones: {
+        imagen: 'fondo2.jpg',
+        html: `
           <h1>Expediciones</h1>
-          <p>Descubre todas nuestras rutas y aventuras de montaña. ¡Elige tu próxima expedición!</p>
-        `;
-      } else if(seccion === 'contacto'){
-        html = `
+          <div id="lista-expediciones">
+            <button class="boton-expedicion" onclick="mostrarExpedicion('pico_aguila')">Pico del Águila</button>
+            <button class="boton-expedicion" onclick="mostrarExpedicion('iztaccihuatl')">Iztaccíhuatl</button>
+            <button class="boton-expedicion" onclick="mostrarExpedicion('nevado_toluca')">Nevado de Toluca</button>
+          </div>
+          <div id="info-expedicion" style="margin-top:30px;"></div>
+          <p style="margin-top:30px;">¡Elige una expedición para ver más información!</p>
+        `
+      },
+      contacto: {
+        imagen: 'fondo3.jpg',
+        html: `
           <h1>Contacto</h1>
           <p><b>¿Listo para tu próxima aventura o tienes alguna duda?</b><br>
           Ya sea que quieras unirte a una ruta, agendar una salida personalizada o simplemente conocer más sobre lo que hacemos, estamos para ayudarte.</p>
@@ -112,14 +158,15 @@
           </ul>
           <p><b>¿Te animas a vivir una experiencia diferente?</b><br>
           Contáctanos y hagamos posible tu próxima cima.</p>
-        `;
-      } else if(seccion === 'galeria'){
-        html = `
-          <h1>Galería</h1>
-          <p>Explora fotos de nuestras aventuras pasadas y anímate a sumarte a la siguiente.</p>
-        `;
-      } else if(seccion === 'sobre_nosotros'){
-        html = `
+        `
+      },
+      galeria: {
+        imagen: 'galeria.jpg',
+        html: `<h1>Galería</h1><p>Explora fotos de nuestras aventuras pasadas y anímate a sumarte a la siguiente.</p>`
+      },
+      sobre_nosotros: {
+        imagen: 'sobre_nosotros.jpg',
+        html: `
           <h1>Sobre Nosotros</h1>
           <h2>¿Quiénes somos?</h2>
           <p>
@@ -150,9 +197,11 @@
             Altum Capra es para quien busca más que un destino. Es para quien quiere crecer, conectar, reír, cansarse, respirar profundo y sentirse libre.<br>
             <b>Explora más alto, vive más libre.</b>
           </p>
-        `;
-      } else if(seccion === 'guias'){
-        html = `
+        `
+      },
+      guias: {
+        imagen: 'fondo_guias.jpg',
+        html: `
           <h1>Diego – Guía de montaña</h1>
           <p>
             Soy una persona alegre, apasionada por la naturaleza y siempre lista para compartir buena vibra en cada aventura. 
@@ -161,9 +210,11 @@
             Acompañarte en el camino no solo significa mostrarte la ruta, sino motivarte, cuidarte y asegurarme de que vivas algo que recordarás con una sonrisa.
           </p>
           <img src="diego_guia.jpg" alt="Foto del guía Diego" class="foto-guia">
-        `;
-      } else if(seccion === 'pico_aguila'){
-        html = `
+        `
+      },
+      pico_aguila: {
+        imagen: 'fondo_pico_aguila.jpg',
+        html: `
           <h1>PICO DEL ÁGUILA</h1>
           <p>
             A 3,880 msnm, la vista desde el Pico del Águila es un premio para quienes se atreven a desafiar el Ajusco.<br>
@@ -174,18 +225,39 @@
             <b>Dificultad:</b> Media - ideal para quienes quieren probar alturas más desafiantes.<br><br>
             Nos vemos en la cima.
           </p>
-        `;
-      } else {
-        html = `<h1>Sección no encontrada</h1>`;
+        `
       }
-      
-      // Actualiza el contenido y reinicia la animación
-      contenido.innerHTML = html;
-      contenido.style.animation = 'none';
-      // Forzar reflow para reiniciar animación
-      void contenido.offsetWidth;
-      contenido.style.animation = null;
+    };
+
+    // Cambia el contenido y fondo según la pestaña seleccionada
+    function mostrarContenido(seccion) {
+      const datos = SECCIONES[seccion];
+      if (datos) {
+        document.body.style.background = `url('${datos.imagen}') no-repeat center center fixed`;
+        document.body.style.backgroundSize = "cover";
+        const contenido = document.getElementById('contenido');
+        contenido.innerHTML = datos.html;
+        contenido.style.animation = 'none';
+        void contenido.offsetWidth; // reinicia animación
+        contenido.style.animation = null;
+      } else {
+        document.getElementById('contenido').innerHTML = `<h1>Sección no encontrada</h1>`;
+      }
     }
+
+    // Función para mostrar información de cada expedición
+    function mostrarExpedicion(nombre) {
+      const info = EXPEDICIONES[nombre] ? EXPEDICIONES[nombre].descripcion : "<p>Expedición no encontrada.</p>";
+      document.getElementById("info-expedicion").innerHTML = info;
+    }
+
+    // Evento del menú desplegable
+    document.getElementById('menuPestanas').addEventListener('change', function() {
+      mostrarContenido(this.value);
+    });
+
+    // Muestra la sección de inicio al cargar
+    mostrarContenido('inicio');
   </script>
 </body>
 </html>
