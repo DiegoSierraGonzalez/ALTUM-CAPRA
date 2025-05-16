@@ -3,48 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <title>ALTUM CAPRA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    html {
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
     body {
       background: url('mi_foto_montaña.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       font-family: Arial, sans-serif;
-      line-height: 1.6;
+      line-height: 1.7;
       margin: 0;
       padding: 0;
       transition: background 1s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 1em;
     }
     nav {
       background: rgba(0,0,0,0.7);
-      padding: 18px 0 10px 0;
+      padding: 16px 0 8px 0;
       text-align: center;
       box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
     }
     nav a {
       color: #ffd700;
       text-decoration: none;
-      margin: 0 24px;
-      font-size: 1.3em;
+      margin: 0 8px 6px 8px;
+      font-size: 1.13em;
       transition: color 0.3s, transform 0.2s;
       cursor: pointer;
       display: inline-block;
-      padding: 6px 2px;
+      padding: 10px 14px;
       font-weight: bold;
+      border-radius: 6px;
     }
     nav a:hover, nav a.active {
       color: #fff;
-      border-bottom: 2px solid #ffd700;
+      border-bottom: 2.5px solid #ffd700;
+      background: rgba(255,215,0,0.08);
       transform: scale(1.10);
     }
     .contenido {
-      padding: 40px 20px;
+      padding: 32px 4vw;
       min-height: 80vh;
-      background: rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.32);
       max-width: 700px;
-      margin: 30px auto 0 auto;
+      margin: 26px auto 0 auto;
       border-radius: 10px;
       opacity: 1;
       animation: fadeIn 0.7s;
+      font-size: 1.1em;
     }
     .foto-guia {
       display: block;
@@ -86,20 +102,59 @@
       border-radius: 10px;
       color: #fff;
       box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      overflow-x: auto;
+      display: block;
+    }
+    .ranking-table table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 350px;
     }
     .ranking-table th, .ranking-table td {
       padding: 12px 8px;
       border-bottom: 1px solid #ffd70022;
       text-align: center;
+      font-size: 1em;
     }
     .ranking-table th {
       background: rgba(34, 40, 49, 0.62);
       color: #ffd700;
-      font-size: 1.1em;
+      font-size: 1.08em;
     }
     .ranking-table tr:hover {
       background: rgba(255, 215, 0, 0.12);
       transition: background 0.3s;
+    }
+    img, .foto-guia {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 12px auto;
+    }
+    @media (max-width: 700px) {
+      html { font-size: 15px; }
+      .contenido {
+        padding: 4vw 2vw;
+        font-size: 1em;
+        margin: 10px auto 0 auto;
+      }
+      nav {
+        padding: 10px 0 5px 0;
+      }
+      nav a {
+        font-size: 1em;
+        padding: 9px 6px;
+        margin: 4px 2px;
+        min-width: 90px;
+      }
+      .ranking-table th, .ranking-table td {
+        font-size: 0.98em;
+        padding: 7px 4px;
+      }
+    }
+    @media (max-width: 450px) {
+      nav a { font-size: 0.95em; padding: 7px 3px; min-width: 70px;}
+      .contenido { font-size: .97em;}
     }
   </style>
 </head>
@@ -245,52 +300,54 @@
         `
       },
       ranking: {
-        imagen: 'FONDO CONTACTO.jpg',
+        imagen: 'fondo_pico_aguila.jpg',
         html: `
           <h1>Ranking de Aventureros</h1>
           <p>¡Conoce a quienes más han conquistado el Pico del Águila con ALTUM CAPRA!</p>
-          <table class="ranking-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Aventurero</th>
-                <th>Expediciones</th>
-                <th>Puntos</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td><b>Yeyo</b> 🥇</td>
-                <td>7</td>
-                <td>350</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td><b>Rollito</b> 🥈</td>
-                <td>6</td>
-                <td>320</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td><b>Meldy</b> 🥉</td>
-                <td>5</td>
-                <td>295</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td><b>Diego Sierra</b></td>
-                <td>4</td>
-                <td>260</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td><b>Ana Torres</b></td>
-                <td>3</td>
-                <td>220</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="ranking-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Aventurero</th>
+                  <th>Expediciones</th>
+                  <th>Puntos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td><b>Yeyo</b> 🥇</td>
+                  <td>7</td>
+                  <td>350</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td><b>Rollito</b> 🥈</td>
+                  <td>6</td>
+                  <td>320</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td><b>Meldy</b> 🥉</td>
+                  <td>5</td>
+                  <td>295</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td><b>Diego Sierra</b></td>
+                  <td>4</td>
+                  <td>260</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td><b>Ana Torres</b></td>
+                  <td>3</td>
+                  <td>220</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <p style="margin-top:20px;color:#ffe066;">¿Quieres aparecer en el ranking? ¡Suma expediciones y puntos en cada ruta!</p>
         `
       }
