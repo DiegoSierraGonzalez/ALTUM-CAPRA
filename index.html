@@ -1,60 +1,131 @@
-import React from "react";
-
-export default function AltumCapraLanding() {
-  return (
-    <div className="bg-white text-gray-900 font-sans">
-      {/* Header */}
-      <header className="bg-cover bg-center h-96 text-white flex items-center justify-center" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1523413651479-597eb2da0ad6")' }}>
-        <div className="bg-black bg-opacity-50 p-6 rounded-xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2">Altum Capra</h1>
-          <p className="text-lg md:text-xl italic">Explora más alto, vive más libre con Altum Capra</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ALTUM CAPRA - Guías de Montaña</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #f5f6fa;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 6px 24px rgba(44, 62, 80, 0.15);
+            padding: 40px 30px 30px 30px;
+            text-align: center;
+        }
+        h1 {
+            color: #2f3640;
+            margin-bottom: 10px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .tab {
+            padding: 12px 28px;
+            border: none;
+            background: #dff9fb;
+            color: #30336b;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+        .tab.active {
+            background: #30336b;
+            color: #fff;
+        }
+        .tab-content {
+            display: none;
+            text-align: left;
+            padding: 18px;
+            background: #f7f1e3;
+            border-radius: 0 0 8px 8px;
+            min-height: 130px;
+            font-size: 1.08rem;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 18px 5px;
+            }
+            .tabs {
+                flex-direction: column;
+                gap: 4px;
+            }
+            .tab {
+                width: 100%;
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ALTUM CAPRA</h1>
+        <p>Guías profesionales de montaña & experiencias mágicas</p>
+        <div class="tabs">
+            <button class="tab active" data-tab="home">Inicio</button>
+            <button class="tab" data-tab="expeditions">Expediciones</button>
+            <button class="tab" data-tab="pico">PICO DEL AGUILA</button>
+            <button class="tab" data-tab="contact">Contacto</button>
         </div>
-      </header>
-
-      {/* Ruta Coconetla */}
-      <section className="py-12 px-4 md:px-16 bg-gray-50">
-        <h2 className="text-3xl font-bold mb-4">Ruta Coconetla</h2>
-        <ul className="list-disc pl-5 text-lg space-y-2">
-          <li><strong>Altitud:</strong> 2,640 m</li>
-          <li><strong>Duración:</strong> 2-3 horas (subida y bajada)</li>
-          <li><strong>Nivel:</strong> Intermedio</li>
-          <li><strong>Recomendaciones:</strong>
-            <ul className="list-disc pl-5">
-              <li>2L de agua</li>
-              <li>Calzado de trail</li>
-              <li>Protector solar</li>
-              <li>Rompevientos o impermeable</li>
-              <li>Salida temprano (6:00 a.m. ideal)</li>
+        <div id="home" class="tab-content active">
+            <strong>Bienvenido a ALTUM CAPRA.</strong><br>
+            Descubre aventuras inolvidables, seguridad y profesionalismo en cada expedición.
+        </div>
+        <div id="expeditions" class="tab-content">
+            <strong>Próximas Expediciones:</strong>
+            <ul>
+                <li>Ruta de los Volcanes – 24/06/2025</li>
+                <li>Sendero de las Nubes – 15/07/2025</li>
+                <li>Travesía Nocturna – 29/07/2025</li>
             </ul>
-          </li>
-        </ul>
-      </section>
-
-      {/* Instagram Feed */}
-      <section className="py-12 px-4 md:px-16">
-        <h2 className="text-3xl font-bold mb-6">Galería de Instagram</h2>
-        <div className="overflow-hidden">
-          <iframe
-            src="https://lightwidget.com/widgets/d30d332267815899ab1dfa1792b78703.html"
-            scrolling="no"
-            allowtransparency="true"
-            className="w-full h-[400px] border-0"
-            title="Instagram Feed"
-          ></iframe>
         </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 px-4 text-center">
-        <p className="mb-2">&copy; 2025 Altum Capra</p>
-        <div className="flex flex-col items-center space-y-2">
-          <a href="https://www.instagram.com/altum_capra" target="_blank" rel="noopener noreferrer" className="hover:underline">
-            Instagram: @altum_capra
-          </a>
-          <p>📞 Tel: 5578862673</p>
-          <p>📧 Correo: <a href="mailto:yeyosky_0@icloud.com" className="hover:underline">yeyosky_0@icloud.com</a></p>
+        <div id="pico" class="tab-content">
+            <strong>PICO DEL AGUILA</strong><br>
+            Atrévete a conquistar esta emblemática cumbre. Altitud, vistas panorámicas y una experiencia única con nuestros guías certificados.<br>
+            <ul>
+                <li>Dificultad: Moderada</li>
+                <li>Duración: 1 día</li>
+                <li>Incluye: Equipo, hidratación y fotografías</li>
+            </ul>
         </div>
-      </footer>
+        <div id="contact" class="tab-content">
+            <strong>Contáctanos:</strong><br>
+            <ul>
+                <li>Email: info@altumcapra.com</li>
+                <li>WhatsApp: +52 123 456 7890</li>
+                <li>Instagram: @altumcapra</li>
+            </ul>
+        </div>
     </div>
-  );
-}
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Desactivar todas las pestañas y contenidos
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                // Activar la pestaña y contenido seleccionados
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
