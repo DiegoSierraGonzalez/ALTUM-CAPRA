@@ -12,23 +12,47 @@ body {
   transition: background 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* NAV con animación de barrido luminoso */
 nav {
   display: flex;
   justify-content: center;
-  background: linear-gradient(
-    to bottom,
-    rgba(34,40,49,0.8) 60%,
-    rgba(60,99,130,0.6) 100%
-  ), url('files/tu_imagen.jpg') no-repeat center center;
-  background-size: cover;
+  background: 
+    linear-gradient(
+      120deg,
+      rgba(34,40,49,0.9) 60%,
+      rgba(60,99,130,0.6) 100%
+    ),
+    repeating-linear-gradient(
+      100deg,
+      rgba(255,255,255,0.18) 0 10%,
+      transparent 10% 20%
+    ),
+    url('files/tu_imagen.jpg') no-repeat center center;
+  background-size: 200% 100%, 300% 100%, cover;
   flex-wrap: wrap;
   border-bottom: 2px solid #38ada9;
   opacity: 0;
-  animation: fadeInNav 1.3s ease forwards;
-  animation-delay: 0.5s;
+  animation: fadeInNav 1.3s cubic-bezier(0.4, 0, 0.2, 1) forwards, shineBg 2.8s 0.3s forwards;
+  animation-delay: 0.5s, 0.8s;
   box-shadow: 0 2px 12px rgba(34,40,49,0.18);
+  position: relative;
+  overflow: hidden;
 }
 
+@keyframes fadeInNav {
+  from { opacity: 0; transform: translateY(-30px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+@keyframes shineBg {
+  from {
+    background-position: 120% 0, 100% 0, center;
+  }
+  to {
+    background-position: 0 0, 0 0, center;
+  }
+}
+
+/* ENLACES DEL MENÚ: aparición escalonada */
 nav a {
   color: #ffd700;
   text-decoration: none;
@@ -39,17 +63,28 @@ nav a {
   border-radius: 6px;
   transition: color 0.3s, background 0.3s, transform 0.2s;
   display: inline-block;
+
+  opacity: 0;
+  transform: translateY(-18px);
+  animation: fadeInLink 0.7s forwards;
 }
+nav a:nth-child(1) { animation-delay: 1.1s; }
+nav a:nth-child(2) { animation-delay: 1.22s; }
+nav a:nth-child(3) { animation-delay: 1.34s; }
+nav a:nth-child(4) { animation-delay: 1.46s; }
+nav a:nth-child(5) { animation-delay: 1.58s; }
+nav a:nth-child(6) { animation-delay: 1.70s; }
+nav a:nth-child(7) { animation-delay: 1.82s; }
+
+@keyframes fadeInLink {
+  to { opacity: 1; transform: none; }
+}
+
 nav a:hover, nav a.active {
   color: #fff;
   background: rgba(56,173,169,0.20);
   border-bottom: 2px solid #38ada9;
   transform: scale(1.08);
-}
-
-@keyframes fadeInNav {
-  from { opacity: 0; transform: translateY(-30px);}
-  to   { opacity: 1; transform: translateY(0);}
 }
 
 /* Responsive styles */
