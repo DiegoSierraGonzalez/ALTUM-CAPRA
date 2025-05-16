@@ -14,25 +14,34 @@
       padding: 0;
       transition: background 1s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .menu-select {
-      display: block;
-      margin: 30px auto 0 auto;
-      padding: 10px 20px;
-      font-size: 1.1em;
-      border-radius: 8px;
-      border: none;
+    nav {
       background: rgba(0,0,0,0.7);
+      padding: 18px 0 10px 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+    nav a {
       color: #ffd700;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      text-decoration: none;
+      margin: 0 24px;
+      font-size: 1.3em;
+      transition: color 0.3s, transform 0.2s;
       cursor: pointer;
-      outline: none;
+      display: inline-block;
+      padding: 6px 2px;
+      font-weight: bold;
+    }
+    nav a:hover, nav a.active {
+      color: #fff;
+      border-bottom: 2px solid #ffd700;
+      transform: scale(1.10);
     }
     .contenido {
       padding: 40px 20px;
       min-height: 80vh;
       background: rgba(0,0,0,0.3);
       max-width: 700px;
-      margin: auto;
+      margin: 30px auto 0 auto;
       border-radius: 10px;
       opacity: 1;
       animation: fadeIn 0.7s;
@@ -72,15 +81,15 @@
   </style>
 </head>
 <body>
-  <select class="menu-select" id="menuPestanas">
-    <option value="inicio">Inicio</option>
-    <option value="expediciones">Expediciones</option>
-    <option value="contacto">Contacto</option>
-    <option value="galeria">Galería</option>
-    <option value="sobre_nosotros">Sobre Nosotros</option>
-    <option value="guias">Guías</option>
-    <option value="pico_aguila">Pico del Águila</option>
-  </select>
+  <nav>
+    <a href="#" data-seccion="inicio" class="active">Inicio</a>
+    <a href="#" data-seccion="expediciones">Expediciones</a>
+    <a href="#" data-seccion="contacto">Contacto</a>
+    <a href="#" data-seccion="galeria">Galería</a>
+    <a href="#" data-seccion="sobre_nosotros">Sobre Nosotros</a>
+    <a href="#" data-seccion="guias">Guías</a>
+    <a href="#" data-seccion="pico_aguila">Pico del Águila</a>
+  </nav>
   <div class="contenido" id="contenido"></div>
   <script>
     // Expediciones interactivas
@@ -243,6 +252,14 @@
       } else {
         document.getElementById('contenido').innerHTML = `<h1>Sección no encontrada</h1>`;
       }
+      // Actualiza el estado activo en el menú
+      document.querySelectorAll('nav a').forEach(a => {
+        if(a.dataset.seccion === seccion) {
+          a.classList.add('active');
+        } else {
+          a.classList.remove('active');
+        }
+      });
     }
 
     // Función para mostrar información de cada expedición
@@ -251,9 +268,12 @@
       document.getElementById("info-expedicion").innerHTML = info;
     }
 
-    // Evento del menú desplegable
-    document.getElementById('menuPestanas').addEventListener('change', function() {
-      mostrarContenido(this.value);
+    // Evento del menú de navegación
+    document.querySelectorAll('nav a').forEach(a => {
+      a.onclick = function(e) {
+        e.preventDefault();
+        mostrarContenido(a.dataset.seccion);
+      }
     });
 
     // Muestra la sección de inicio al cargar
