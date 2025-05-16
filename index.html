@@ -1,145 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>ALTUM CAPRA - Guías de Montaña</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            background: #f5f6fa;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-        .container {
-            max-width: 700px;
-            margin: 50px auto;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 6px 24px rgba(44, 62, 80, 0.15);
-            padding: 40px 30px 30px 30px;
-            text-align: center;
-        }
-        h1 {
-            color: #2f3640;
-            margin-bottom: 10px;
-        }
-        .tabs {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-        .tab {
-            padding: 12px 28px;
-            border: none;
-            background: #dff9fb;
-            color: #30336b;
-            border-radius: 8px 8px 0 0;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.2s;
-        }
-        .tab.active {
-            background: #30336b;
-            color: #fff;
-        }
-        .tab-content {
-            display: none;
-            text-align: left;
-            padding: 18px;
-            background: #f7f1e3;
-            border-radius: 0 0 8px 8px;
-            min-height: 130px;
-            font-size: 1.08rem;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        @media (max-width: 600px) {
-            .container {
-                padding: 18px 5px;
-            }
-            .tabs {
-                flex-direction: column;
-                gap: 4px;
-            }
-            .tab {
-                width: 100%;
-                border-radius: 8px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>ALTUM CAPRA</title>
+  <style>
+    body {
+      background: url('mi_foto_montaña.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background: rgba(0,0,0,0.6);
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 1.2em;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    .contenido {
+      padding: 40px 20px;
+      min-height: 80vh;
+      background: rgba(0,0,0,0.3);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>ALTUM CAPRA</h1>
-        <p>Guías profesionales de montaña & experiencias mágicas</p>
-        <div class="tabs">
-            <button class="tab active" data-tab="home">Inicio</button>
-            <button class="tab" data-tab="expeditions">Expediciones</button>
-            <button class="tab" data-tab="pico">PICO DEL AGUILA</button>
-            <button class="tab" data-tab="guias">Guías</button>
-            <button class="tab" data-tab="contact">Contacto</button>
-        </div>
-        <div id="home" class="tab-content active">
-            <strong>Bienvenido a ALTUM CAPRA.</strong><br>
-            Descubre aventuras inolvidables, seguridad y profesionalismo en cada expedición.
-        </div>
-        <div id="expeditions" class="tab-content">
-            <strong>Próximas Expediciones:</strong>
-            <ul>
-                <li>Ruta de los Volcanes – 24/06/2025</li>
-                <li>Sendero de las Nubes – 15/07/2025</li>
-                <li>Travesía Nocturna – 29/07/2025</li>
-            </ul>
-        </div>
-        <div id="pico" class="tab-content">
-            <strong>PICO DEL AGUILA</strong><br>
-            A 3,880 msnm, la vista desde el Pico del Águila es un premio para quienes se atreven a desafiar el Ajusco.<br>
-            Si buscas una ruta cercana a la CDMX, con buen desnivel y una cima épica, esta es tu opción. ¿Ya subiste? Cuéntanos en los comentarios tu experiencia y etiqueta a tu compañero de aventura.
-            <ul>
-                <li>Distancia: 5-7 km</li>
-                <li>Tiempo: 3-4 horas ida y vuelta</li>
-                <li>Dificultad: Media - ideal para quienes quieren probar alturas más desafiantes.</li>
-            </ul>
-            Nos vemos en la cima.
-        </div>
-        <div id="guias" class="tab-content">
-            <strong>Diego – Guía de montaña</strong>
-            <p>
-                Soy una persona alegre, apasionada por la naturaleza y siempre lista para compartir buena vibra en cada aventura. Como guía, mi prioridad es que cada experiencia sea segura, auténtica y enriquecedora. Creo en el respeto por la montaña, el trabajo en equipo y el valor de superar nuestros propios límites. Acompañarte en el camino no solo significa mostrarte la ruta, sino motivarte, cuidarte y asegurarme de que vivas algo que recordarás con una sonrisa.
-            </p>
-            <div style="text-align:center; margin-top:20px;">
-                <img src="URL_DE_TU_FOTO_AQUI" alt="Foto de Diego Guía de Montaña" style="max-width: 200px; border-radius: 12px; box-shadow: 0 2px 8px rgba(44,62,80,0.18);">
-                <br>
-                <small>Puedes subir aquí tu fotografía cambiando la URL.</small>
-            </div>
-        </div>
-        <div id="contact" class="tab-content">
-            <strong>Contáctanos:</strong><br>
-            <ul>
-                <li>Email: yeyosky_0@icloud.com </li>
-                <li>WhatsApp: +55 7886 2673</li>
-                <li>Instagram: @altumcapra</li>
-            </ul>
-        </div>
-    </div>
-    <script>
-        const tabs = document.querySelectorAll('.tab');
-        const contents = document.querySelectorAll('.tab-content');
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Desactivar todas las pestañas y contenidos
-                tabs.forEach(t => t.classList.remove('active'));
-                contents.forEach(c => c.classList.remove('active'));
-
-                // Activar la pestaña y contenido seleccionados
-                tab.classList.add('active');
-                document.getElementById(tab.dataset.tab).classList.add('active');
-            });
-        });
-    </script>
+  <nav>
+    <a href="#" onclick="cambiarFondo('mi_foto_montaña.jpg')">Inicio</a>
+    <a href="#" onclick="cambiarFondo('fondo2.jpg')">Expediciones</a>
+    <a href="#" onclick="cambiarFondo('fondo3.jpg')">Contacto</a>
+  </nav>
+  <div class="contenido">
+    <h1>Bienvenido a ALTUM CAPRA</h1>
+    <p>Página 100% dedicada a una experiencia mágica en la montaña. Explora nuestras expediciones y contacta con nosotros.</p>
+  </div>
+  <script>
+    function cambiarFondo(imagen) {
+      document.body.style.background = `url('${imagen}') no-repeat center center fixed`;
+      document.body.style.backgroundSize = "cover";
+    }
+  </script>
 </body>
 </html>
