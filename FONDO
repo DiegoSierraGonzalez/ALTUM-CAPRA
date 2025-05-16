@@ -1,6 +1,6 @@
 body {
   /* Cambia la ruta por la de tu foto */
-  background: url('img/mi_foto_montaña.jpg') no-repeat center center fixed;
+  background: url('files/mi_fondo_montaña.jpg') no-repeat center center fixed;
   background-size: cover;
   color: var(--text-color);
   line-height: 1.6;
@@ -14,9 +14,9 @@ nav {
     to bottom,
     rgba(34,40,49,0.8) 60%,
     rgba(60,99,130,0.6) 100%
-  ), url('img/mi_foto_montaña.jpg') no-repeat center center;
+  ), url('files/tu_imagen.jpg') no-repeat center center;
   background-size: cover;
   flex-wrap: wrap;
   /* Opcional: agrega un borde sutil si quieres separar el nav del fondo */
   border-bottom: 2px solid #38ada9;
-}    
+}
