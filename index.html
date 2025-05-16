@@ -78,6 +78,29 @@
       from { opacity: 0; transform: scale(0.9);}
       to   { opacity: 1; transform: scale(1);}
     }
+    /* Ranking table styles */
+    .ranking-table {
+      width: 100%;
+      margin-top: 25px;
+      background: rgba(0,0,0,0.35);
+      border-radius: 10px;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .ranking-table th, .ranking-table td {
+      padding: 12px 8px;
+      border-bottom: 1px solid #ffd70022;
+      text-align: center;
+    }
+    .ranking-table th {
+      background: rgba(34, 40, 49, 0.62);
+      color: #ffd700;
+      font-size: 1.1em;
+    }
+    .ranking-table tr:hover {
+      background: rgba(255, 215, 0, 0.12);
+      transition: background 0.3s;
+    }
   </style>
 </head>
 <body>
@@ -224,16 +247,51 @@
       pico_aguila: {
         imagen: 'fondo_pico_aguila.jpg',
         html: `
-          <h1>PICO DEL ÁGUILA</h1>
-          <p>
-            A 3,880 msnm, la vista desde el Pico del Águila es un premio para quienes se atreven a desafiar el Ajusco.<br>
-            Si buscas una ruta cercana a la CDMX, con buen desnivel y una cima épica, esta es tu opción. ¿Ya subiste? 
-            Cuéntanos en los comentarios tu experiencia y etiqueta a tu compañero de aventura.<br><br>
-            <b>Distancia:</b> 5-7 km<br>
-            <b>Tiempo:</b> 3-4 horas ida y vuelta<br>
-            <b>Dificultad:</b> Media - ideal para quienes quieren probar alturas más desafiantes.<br><br>
-            Nos vemos en la cima.
-          </p>
+          <h1>Ranking de Aventureros</h1>
+          <p>¡Conoce a quienes más han conquistado el Pico del Águila con ALTUM CAPRA!</p>
+          <table class="ranking-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Aventurero</th>
+                <th>Expediciones</th>
+                <th>Puntos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><b>María López</b> 🥇</td>
+                <td>7</td>
+                <td>350</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><b>Juan Pérez</b> 🥈</td>
+                <td>6</td>
+                <td>320</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><b>Sofía Ramírez</b> 🥉</td>
+                <td>5</td>
+                <td>295</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><b>Diego Sierra</b></td>
+                <td>4</td>
+                <td>260</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><b>Ana Torres</b></td>
+                <td>3</td>
+                <td>220</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top:20px;color:#ffe066;">¿Quieres aparecer en el ranking? ¡Suma expediciones y puntos en cada ruta!</p>
         `
       }
     };
