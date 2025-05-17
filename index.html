@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>ALTUM CAPRA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Mejor viewport para móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5">
   <style>
     html {
       box-sizing: border-box;
@@ -66,10 +67,13 @@
     .foto-guia {
       display: block;
       margin: 20px auto 0 auto;
-      max-width: 200px;
+      max-width: 220px;
+      width: 100%;
+      height: auto;
       border-radius: 50%;
       border: 3px solid #ffd700;
       animation: fadeInImg 1.2s;
+      object-fit: cover;
     }
     .boton-expedicion {
       background: #222831;
@@ -220,6 +224,8 @@
       .foto-guia {
         max-width: 140px;
         margin-top: 14px;
+        width: 100%;
+        height: auto;
       }
       .tendedero img {
         width: 90px;
@@ -229,7 +235,7 @@
     @media (max-width: 450px) {
       nav a { font-size: 0.95em; padding: 7px 3px; min-width: 70px;}
       .contenido { font-size: .97em;}
-      .foto-guia { max-width: 110px; }
+      .foto-guia { max-width: 110px; width: 100%; height: auto;}
       .tendedero img { width: 70px; height: 70px; }
     }
   </style>
@@ -309,8 +315,8 @@
           <p><b>¿Listo para tu próxima aventura o tienes alguna duda?</b><br>
           Ya sea que quieras unirte a una ruta, agendar una salida personalizada o simplemente conocer más sobre lo que hacemos, estamos para ayudarte.</p>
           <ul>
-            <li>📩 <b>Correo:</b> yeyosky_0@icloud.com</li>
-            <li>📞 <b>Teléfono / WhatsApp:</b> 55 7886 2673</li>
+            <li>📩 <b>Correo:</b> <a href="mailto:yeyosky_0@icloud.com" style="color:#ffd700;">yeyosky_0@icloud.com</a></li>
+            <li>📞 <b>Teléfono / WhatsApp:</b> <a href="https://wa.me/525578862673" target="_blank" style="color:#ffd700;">55 7886 2673</a></li>
             <li>📸 <b>Instagram:</b> @altumcapra</li>
             <li>📍 <b>Ubicación:</b> Con base en CDMX, pero exploramos rutas por todo el centro del país.</li>
           </ul>
@@ -342,15 +348,15 @@
           <h1>Sobre Nosotros</h1>
           <h2>¿Quiénes somos?</h2>
           <p>
-            Altum Capra nació del amor por la montaña, la aventura y la libertad de ir siempre un poco más alto. Somos una comunidad creada por y para personas que buscan más que una caminata: buscan una experiencia transformadora.
+            Altum Capra nació del amor por la montaña, la aventura y la libertad de ir siempre un poco más alto. Somos una comunidad creada por y para personas que buscan más que una caminata...
           </p>
           <h3>Nuestra misión</h3>
           <p>
-            Conectar a las personas con la montaña a través de experiencias auténticas, seguras y llenas de buena vibra. Queremos que cada ruta sea una oportunidad para descubrir nuevos paisajes, pero también una versión mejor de ti.
+            Conectar a las personas con la montaña a través de experiencias auténticas, seguras y llenas de buena vibra. Queremos que cada ruta sea una oportunidad para descubrir nuevos paisajes y a uno mismo.
           </p>
           <h3>Nuestra visión</h3>
           <p>
-            Ser una referencia en montañismo responsable y accesible en México. Formar una comunidad sólida donde cada paso cuente, donde se valore el respeto por la naturaleza y se inspire a más personas a salir a la montaña.
+            Ser una referencia en montañismo responsable y accesible en México. Formar una comunidad sólida donde cada paso cuente, donde se valore el respeto por la naturaleza y se inspire a otros a subir más alto.
           </p>
           <h3>Nuestros valores</h3>
           <ul>
@@ -362,7 +368,7 @@
           </ul>
           <h3>¿Qué nos hace diferentes?</h3>
           <p>
-            En Altum Capra no solo te guiamos por una ruta: caminamos contigo, te motivamos, te escuchamos y celebramos cada logro. No somos una agencia fría, somos una tribu que vibra con la naturaleza, con la aventura y con la vida.
+            En Altum Capra no solo te guiamos por una ruta: caminamos contigo, te motivamos, te escuchamos y celebramos cada logro. No somos una agencia fría, somos una tribu que vibra con la naturaleza.
           </p>
           <h3>¿Te unes?</h3>
           <p>
