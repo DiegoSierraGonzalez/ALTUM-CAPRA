@@ -238,6 +238,24 @@
       .foto-guia { max-width: 110px; width: 100%; height: auto;}
       .tendedero img { width: 70px; height: 70px; }
     }
+    /* Estilo para separar las fichas de guías */
+    .guia-card {
+      margin-bottom: 45px;
+      padding-bottom: 28px;
+      border-bottom: 2px solid #ffd70033;
+    }
+    .guia-card:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .guia-nombre {
+      margin-top: 0;
+      margin-bottom: 6px;
+      color: #ffd700;
+      font-size: 1.3em;
+      letter-spacing: 0.01em;
+    }
   </style>
 </head>
 <body>
@@ -352,11 +370,11 @@
           </p>
           <h3>Nuestra misión</h3>
           <p>
-            Conectar a las personas con la montaña a través de experiencias auténticas, seguras y llenas de buena vibra. Queremos que cada ruta sea una oportunidad para descubrir nuevos paisajes y a uno mismo.
+            Conectar a las personas con la montaña a través de experiencias auténticas, seguras y llenas de buena vibra. Queremos que cada ruta sea una oportunidad para descubrir nuevos paisajes y [...]
           </p>
           <h3>Nuestra visión</h3>
           <p>
-            Ser una referencia en montañismo responsable y accesible en México. Formar una comunidad sólida donde cada paso cuente, donde se valore el respeto por la naturaleza y se inspire a otros a subir más alto.
+            Ser una referencia en montañismo responsable y accesible en México. Formar una comunidad sólida donde cada paso cuente, donde se valore el respeto por la naturaleza y se inspire a otros[...]
           </p>
           <h3>Nuestros valores</h3>
           <ul>
@@ -368,7 +386,7 @@
           </ul>
           <h3>¿Qué nos hace diferentes?</h3>
           <p>
-            En Altum Capra no solo te guiamos por una ruta: caminamos contigo, te motivamos, te escuchamos y celebramos cada logro. No somos una agencia fría, somos una tribu que vibra con la naturaleza.
+            En Altum Capra no solo te guiamos por una ruta: caminamos contigo, te motivamos, te escuchamos y celebramos cada logro. No somos una agencia fría, somos una tribu que vibra con la natural[...]
           </p>
           <h3>¿Te unes?</h3>
           <p>
@@ -380,14 +398,27 @@
       guias: {
         imagen: 'FONDO GUIA.jpg',
         html: `
-          <h1>Diego – Guía de montaña</h1>
-          <p>
-            Soy una persona alegre, apasionada por la naturaleza y siempre lista para compartir buena vibra en cada aventura. 
-            Como guía, mi prioridad es que cada experiencia sea segura, auténtica y enriquecedora. 
-            Creo en el respeto por la montaña, el trabajo en equipo y el valor de superar nuestros propios límites. 
-            Acompañarte en el camino no solo significa mostrarte la ruta, sino motivarte, cuidarte y asegurarme de que vivas algo que recordarás con una sonrisa.
-          </p>
-          <img src="diego_guia.jpg" alt="Foto del guía Diego" class="foto-guia">
+          <h1 style="text-align:center; margin-bottom:30px;">Nuestros Guías de Montaña</h1>
+          <div class="guia-card">
+            <h2 class="guia-nombre">Diego – Guía de montaña</h2>
+            <p>
+              Soy una persona alegre, apasionada por la naturaleza y siempre lista para compartir buena vibra en cada aventura. 
+              Como guía, mi prioridad es que cada experiencia sea segura, auténtica y enriquecedora. 
+              Creo en el respeto por la montaña, el trabajo en equipo y el valor de superar nuestros propios límites. 
+              Acompañarte en el camino no solo significa mostrarte la ruta, sino motivarte, cuidarte y asegurarme de que vivas algo que recordarás con una sonrisa.
+            </p>
+            <img src="diego_guia.jpg" alt="Foto del guía Diego" class="foto-guia">
+          </div>
+          <div class="guia-card">
+            <h2 class="guia-nombre">Obed – Guía de Montaña</h2>
+            <p>
+              Carismático, lleno de buena energía y con una sonrisa que nunca falta, Obed es uno de esos guías que inspiran confianza desde el primer momento.
+              Su pasión por la montaña es evidente en cada paso y en cada historia que comparte durante las rutas.
+              Siempre comprometido con brindar la mejor experiencia, Obed se mantiene en constante preparación, tomando cursos de primeros auxilios, orientación y seguridad en montaña.
+              Si estás buscando un guía que combine conocimiento, entusiasmo y un gran corazón, Obed es la persona ideal para acompañarte en la aventura.
+            </p>
+            <img src="obed_guia.jpg" alt="Foto del guía Obed" class="foto-guia">
+          </div>
         `
       },
       ranking: {
