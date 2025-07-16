@@ -67,13 +67,14 @@
     .foto-guia {
       display: block;
       margin: 20px auto 0 auto;
-      max-width: 220px;
+      max-width: 140px; /* Cambiado de 220px a 140px para tamaño más decente */
       width: 100%;
-      height: auto;
+      height: 140px;    /* Altura fija para evitar que fotos verticales se vean muy largas */
       border-radius: 50%;
       border: 3px solid #ffd700;
       animation: fadeInImg 1.2s;
       object-fit: cover;
+      box-shadow: 0 2px 10px #0005;
     }
     .boton-expedicion {
       background: #222831;
@@ -222,10 +223,10 @@
         padding: 7px 4px;
       }
       .foto-guia {
-        max-width: 140px;
+        max-width: 90px;
+        height: 90px;
         margin-top: 14px;
         width: 100%;
-        height: auto;
       }
       .tendedero img {
         width: 90px;
@@ -235,7 +236,7 @@
     @media (max-width: 450px) {
       nav a { font-size: 0.95em; padding: 7px 3px; min-width: 70px;}
       .contenido { font-size: .97em;}
-      .foto-guia { max-width: 110px; width: 100%; height: auto;}
+      .foto-guia { max-width: 72px; height: 72px; width: 100%;}
       .tendedero img { width: 70px; height: 70px; }
     }
     /* Estilo para separar las fichas de guías */
